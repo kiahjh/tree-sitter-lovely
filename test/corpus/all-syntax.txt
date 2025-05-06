@@ -34,87 +34,87 @@ returns_unit :: fun () {
   (comment)
   (expression
     (variable_declaration
-      (ident)
+      (variable_ident)
       (expression
         (int_literal))))
   (comment)
   (expression
     (variable_declaration
-      (ident)
+      (variable_ident)
       (type
-        (ident))
+        (type_ident))
       (expression
         (int_literal))))
   (comment)
   (comment)
   (expression
     (variable_declaration
-      (ident)
+      (variable_ident)
       (expression
         (function_expression
           (function_parameter
-            (ident)
+            (variable_ident)
             (type
-              (ident)))
+              (type_ident)))
           (function_parameter
-            (ident)
+            (variable_ident)
             (type
-              (ident)))
+              (type_ident)))
           (type
-            (ident))
+            (type_ident))
           (expression
             (variable_declaration
-              (ident)
+              (variable_ident)
               (expression
                 (infix_expression
                   (expression
-                    (ident))
+                    (variable_ident))
                   (expression
-                    (ident))))))
+                    (variable_ident))))))
           (expression
             (infix_expression
               (expression
-                (ident))
+                (variable_ident))
               (expression
                 (int_literal))))))))
   (expression
     (function_call
-      (ident)
+      (variable_ident)
       (expression
-        (ident))
+        (variable_ident))
       (expression
-        (ident))))
+        (variable_ident))))
   (expression
     (variable_declaration
-      (ident)
+      (variable_ident)
       (expression
         (function_expression
           (function_parameter
-            (ident)
+            (variable_ident)
             (type
-              (ident)))
+              (type_ident)))
           (function_parameter
-            (ident)
-            (ident)
+            (variable_ident)
+            (variable_ident)
             (type
-              (ident)))
+              (type_ident)))
           (expression
             (infix_expression
               (expression
-                (ident))
+                (variable_ident))
               (expression
-                (ident))))))))
+                (variable_ident))))))))
   (expression
     (function_call
-      (ident)
+      (variable_ident)
       (expression
         (int_literal))
-      (ident)
+      (variable_ident)
       (expression
         (int_literal))))
   (expression
     (variable_declaration
-      (ident)
+      (variable_ident)
       (expression
         (function_expression
           (expression

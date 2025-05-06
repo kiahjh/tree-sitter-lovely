@@ -56,7 +56,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "ident"
+          "name": "variable_ident"
         },
         {
           "type": "SYMBOL",
@@ -88,7 +88,7 @@
       "type": "PATTERN",
       "value": "\\d+"
     },
-    "ident": {
+    "variable_ident": {
       "type": "PATTERN",
       "value": "[a-zA-Z_][a-zA-Z0-9_]*"
     },
@@ -488,7 +488,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "ident"
+          "name": "variable_ident"
         },
         {
           "type": "STRING",
@@ -511,7 +511,7 @@
                           "members": [
                             {
                               "type": "SYMBOL",
-                              "name": "ident"
+                              "name": "variable_ident"
                             },
                             {
                               "type": "STRING",
@@ -550,7 +550,7 @@
                                 "members": [
                                   {
                                     "type": "SYMBOL",
-                                    "name": "ident"
+                                    "name": "variable_ident"
                                   },
                                   {
                                     "type": "STRING",
@@ -593,7 +593,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "ident"
+            "name": "variable_ident"
           },
           {
             "type": "STRING",
@@ -648,14 +648,14 @@
         },
         {
           "type": "SYMBOL",
-          "name": "ident"
+          "name": "variable_ident"
         },
         {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "ident"
+              "name": "variable_ident"
             },
             {
               "type": "BLANK"
@@ -677,8 +677,12 @@
       "value": 2,
       "content": {
         "type": "SYMBOL",
-        "name": "ident"
+        "name": "type_ident"
       }
+    },
+    "type_ident": {
+      "type": "PATTERN",
+      "value": "[A-Z_][a-zA-Z0-9_]*"
     }
   },
   "extras": [

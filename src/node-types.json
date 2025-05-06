@@ -16,10 +16,6 @@
           "named": true
         },
         {
-          "type": "ident",
-          "named": true
-        },
-        {
           "type": "infix_expression",
           "named": true
         },
@@ -38,6 +34,10 @@
         {
           "type": "variable_declaration",
           "named": true
+        },
+        {
+          "type": "variable_ident",
+          "named": true
         }
       ]
     }
@@ -55,7 +55,7 @@
           "named": true
         },
         {
-          "type": "ident",
+          "type": "variable_ident",
           "named": true
         }
       ]
@@ -93,11 +93,11 @@
       "required": true,
       "types": [
         {
-          "type": "ident",
+          "type": "type",
           "named": true
         },
         {
-          "type": "type",
+          "type": "variable_ident",
           "named": true
         }
       ]
@@ -158,7 +158,7 @@
       "required": true,
       "types": [
         {
-          "type": "ident",
+          "type": "type_ident",
           "named": true
         }
       ]
@@ -177,11 +177,11 @@
           "named": true
         },
         {
-          "type": "ident",
+          "type": "type",
           "named": true
         },
         {
-          "type": "type",
+          "type": "variable_ident",
           "named": true
         }
       ]
@@ -269,15 +269,19 @@
     "named": false
   },
   {
-    "type": "ident",
-    "named": true
-  },
-  {
     "type": "int_literal",
     "named": true
   },
   {
+    "type": "type_ident",
+    "named": true
+  },
+  {
     "type": "unit",
+    "named": true
+  },
+  {
+    "type": "variable_ident",
     "named": true
   },
   {

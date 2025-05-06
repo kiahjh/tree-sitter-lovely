@@ -22,7 +22,7 @@ module.exports = grammar({
     expression: ($) =>
       choice(
         $.int_literal,
-        $.ident,
+        $.variable_ident,
         $.unit,
         $.prefix_expression,
         $.infix_expression,
@@ -33,7 +33,7 @@ module.exports = grammar({
 
     // expressions:
     int_literal: () => /\d+/,
-    ident: () => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    variable_ident: () => /[a-zA-Z_][a-zA-Z0-9_]*/,
     unit: () => "unit",
     prefix_expression: ($) =>
       choice(
@@ -68,21 +68,37 @@ module.exports = grammar({
       ),
     function_call: ($) =>
       seq(
-        $.ident,
+        $.variable_ident,
         "(",
-        separated_list(",", seq(optional(seq($.ident, ":")), $.expression)),
+        separated_list(
+          ",",
+          seq(optional(seq($.variable_ident, ":")), $.expression),
+        ),
         ")",
       ),
     variable_declaration: ($) =>
       prec(
         0,
-        seq($.ident, ":", optional($.type), choice("=", ":"), $.expression),
+        seq(
+          $.variable_ident,
+          ":",
+          optional($.type),
+          choice("=", ":"),
+          $.expression,
+        ),
       ),
 
     function_parameter: ($) =>
-      seq(optional("~"), $.ident, optional($.ident), ":", $.type),
+      seq(
+        optional("~"),
+        $.variable_ident,
+        optional($.variable_ident),
+        ":",
+        $.type,
+      ),
 
-    type: ($) => prec(2, $.ident),
+    type: ($) => prec(2, $.type_ident),
+    type_ident: () => /[A-Z_][a-zA-Z0-9_]*/,
   },
 });
 
