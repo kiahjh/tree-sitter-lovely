@@ -1,5 +1,20 @@
 [
   {
+    "type": "block_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -7,6 +22,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "block_expression",
+          "named": true
+        },
         {
           "type": "function_call",
           "named": true
@@ -25,10 +44,6 @@
         },
         {
           "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "unit",
           "named": true
         },
         {
@@ -140,7 +155,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "expression",
@@ -220,15 +235,15 @@
     "named": false
   },
   {
+    "type": "->",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
   {
     "type": ":",
-    "named": false
-  },
-  {
-    "type": ";",
     "named": false
   },
   {
@@ -274,10 +289,6 @@
   },
   {
     "type": "type_ident",
-    "named": true
-  },
-  {
-    "type": "unit",
     "named": true
   },
   {
