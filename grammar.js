@@ -87,7 +87,10 @@ module.exports = grammar({
     use_expression: ($) =>
       seq(
         `use`,
-        seq($.variable_ident, repeat(seq(`/`, $.variable_ident))),
+        seq(
+          $.variable_ident,
+          repeat(seq(field(`path_separator`, `/`), $.variable_ident)),
+        ),
         optional(
           seq(
             `#`,

@@ -186,7 +186,18 @@
   {
     "type": "use_expression",
     "named": true,
-    "fields": {},
+    "fields": {
+      "path_separator": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "/",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
