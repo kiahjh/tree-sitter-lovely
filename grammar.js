@@ -12,12 +12,14 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, $._whitespace],
 
+  conflicts: ($) => [[$.use_expression]],
+
   rules: {
     source_file: ($) => repeat($.expression),
 
     // extras
     _whitespace: () => /\s+/,
-    comment: () => token(seq(`#`, /.*\n/)),
+    comment: () => token(seq(`--`, /.*\n/)),
 
     expression: ($) =>
       choice(
@@ -29,6 +31,7 @@ module.exports = grammar({
         $.function_call,
         $.variable_declaration,
         $.block_expression,
+        $.use_expression,
       ),
 
     // expressions:
@@ -81,6 +84,23 @@ module.exports = grammar({
           $.expression,
         ),
       ),
+    use_expression: ($) =>
+      seq(
+        `use`,
+        seq($.variable_ident, repeat(seq(`/`, $.variable_ident))),
+        optional(
+          seq(
+            `#`,
+            choice(
+              seq(`(`, separated_list(`,`, $.use_expression_tail_item), `)`),
+              $.use_expression_tail_item,
+            ),
+          ),
+        ),
+      ),
+
+    use_expression_tail_item: ($) =>
+      choice($.variable_ident, seq($.variable_ident, `as`, $.variable_ident)),
 
     function_parameter: ($) =>
       seq(

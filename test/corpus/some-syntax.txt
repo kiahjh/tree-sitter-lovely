@@ -2,13 +2,17 @@
 Some syntax
 ===========
 
-## Lovely
+-- Lovely
 
-# variable declaration
-foo :: 4 # constant
-bar : Int = 4 # mutable
+-- use expressions
+use foo/bar/baz
+use lorem/ipsum#(dolor as amet, consectetur)
 
-# functions
+-- variable declaration
+foo :: 4 -- constant
+bar : Int = 4 -- mutable
+
+-- functions
 calc :: fun (~x: Int, ~y: Int) -> Int: {
   z :: x / y
   z^2
@@ -26,6 +30,21 @@ returns_unit :: fun (): {}
 
 (source_file
   (comment)
+  (comment)
+  (expression
+    (use_expression
+      (variable_ident)
+      (variable_ident)
+      (variable_ident)))
+  (expression
+    (use_expression
+      (variable_ident)
+      (variable_ident)
+      (use_expression_tail_item
+        (variable_ident)
+        (variable_ident))
+      (use_expression_tail_item
+        (variable_ident))))
   (comment)
   (expression
     (variable_declaration
